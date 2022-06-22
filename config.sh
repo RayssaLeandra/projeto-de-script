@@ -48,6 +48,13 @@ function backup(){
 	tar -czvf $arquivo "${PWD}/backup/comp-$comp/$(basename $pbackup)/$(basename $pbackup)"
         clear
 	rm -rf "${PWD}/backup/comp-$comp/$(basename $pbackup)/$(basename $pbackup)"
+	cp $arquivo "./backup/comp-$comp/$(basename $pbackup)"
+	rm $arquivo
+}
+
+function bdisponiveis(){
+	ls -R "${PWD}/backup/"} 
+
 		
 
 

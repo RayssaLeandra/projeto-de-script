@@ -20,7 +20,7 @@ while true;do
 		"1") backup;;
 		"2") cadastrar;;
 		"3") remover;;
-		"4") 
+		"4") bdisponiveis;;
 		"5") listagem;;
 		"6") break;;
 	esac
