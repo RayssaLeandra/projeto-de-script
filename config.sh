@@ -43,15 +43,13 @@ function backup(){
 	usuario=$(cat pcs.txt | grep comp-$comp | awk '{print $2}')
 	ip=$(cat pcs.txt | grep comp-$comp | awk '{print $3}')
 	read -p " Qual pasta deseja realizar o backup?"  pbackup
-	mkdir "${PWD}/backup/comp-$comp/$(basename $pbackup)" &> /dev/null
+	mkdir -p "${PWD}/backup/comp-$comp/$(basename $pbackup)" &> /dev/null
 	scp -r "$usuario@$ip:$pbackup" "${PWD}/backup/com-$comp/$(basename $pbackup)"
 	tar -czvf $arquivo "${PWD}/backup/comp-$comp/$(basename $pbackup)/$(basename $pbackup)"
         clear
 	rm -rf "${PWD}/backup/comp-$comp/$(basename $pbackup)/$(basename $pbackup)"
-	cp $arquivo "./backup/comp-$comp/$(basename $pbackup)"
-	rm $arquivo
-	echo "backup salvo"
-}
+		
+
 
 
 
