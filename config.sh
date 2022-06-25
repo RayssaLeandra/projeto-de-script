@@ -44,7 +44,7 @@ function backup(){
 	ip=$(cat pcs.txt | grep comp-$comp | awk '{print $3}')
 	read -p " Qual pasta deseja realizar o backup?"  pbackup
 	mkdir -p "${PWD}/backup/comp-$comp/$(basename $pbackup)" &> /dev/null
-	scp -r "$usuario@$ip:$pbackup" "${PWD}/backup/com-$comp/$(basename $pbackup)"
+	scp -r "$usuario@$ip:$pbackup" "${PWD}/backup/comp-$comp/$(basename $pbackup)"
 	tar -czvf $arquivo "${PWD}/backup/comp-$comp/$(basename $pbackup)/$(basename $pbackup)"
         clear
 	rm -rf "${PWD}/backup/comp-$comp/$(basename $pbackup)/$(basename $pbackup)"
@@ -53,8 +53,8 @@ function backup(){
 }
 
 function bdisponiveis(){
-	ls -R "${PWD}/backup/"} 
-
+	ls -R "${PWD}/backup/"
+}
 		
 
 
